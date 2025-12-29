@@ -6,24 +6,31 @@
 }
 
 :root {
-    /* Color Palette from Header Image */
+    /* Premium Color Palette from Header Image */
     --primary-purple: #8B3E9F;
     --primary-magenta: #E91E63;
     --primary-blue: #4A5FBA;
     --primary-orange: #FF6B35;
     --primary-red: #E91E63;
     --text-black: #000000;
-    --bg-light: #F5F5F5;
-    --text-gray: #4a5568;
-    --text-dark: #2d3748;
+    --bg-premium: #FFFFFF;
+    --bg-subtle: #FAFAFA;
+    --text-gray: #6B7280;
+    --text-dark: #1F2937;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 40px rgba(139, 62, 159, 0.12);
+    --shadow-xl: 0 20px 60px rgba(139, 62, 159, 0.15);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: var(--text-black);
-    background-color: var(--bg-light);
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--bg-subtle);
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -34,73 +41,85 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--primary-magenta) 100%);
+    background: var(--bg-premium);
     color: white;
     padding: 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Header with text content (for app pages) */
+header:has(.container h1) {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--primary-magenta) 100%);
+}
+
 header .container {
     padding: 60px 20px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    font-weight: 700;
+    font-size: 2.75rem;
+    margin-bottom: 18px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
 .tagline {
-    font-size: 1.2rem;
-    background: white;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
     max-width: 800px;
     margin: 0 auto;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
 }
 
 .header-banner {
     width: 100%;
-    padding: 20px;
+    padding: 60px 40px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--bg-premium);
 }
 
 .header-image {
     width: 100%;
     height: auto;
+    max-width: 900px;
     max-height: 400px;
     display: block;
-    background-color: white;
     object-fit: contain;
-    border-radius: 24px;
 }
 
 /* Scroll Indicator */
 .scroll-indicator {
-    padding: 30px 20px;
+    padding: 40px 20px 50px;
     text-align: center;
     animation: fadeIn 1s ease-in;
+    background: var(--bg-premium);
 }
 
 .scroll-arrow {
-    font-size: 2rem;
-    color: white;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: bounce 2s infinite;
     display: inline-block;
 }
 
 .scroll-text {
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 10px;
-    opacity: 0.9;
-    font-weight: 500;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 0.95rem;
+    margin-top: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 @keyframes bounce {
@@ -126,62 +145,145 @@ header h1 {
 
 /* Main Content */
 main {
-    padding: 60px 20px;
+    padding: 80px 20px 100px;
 }
 
 .hero {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+    padding-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--primary-purple), var(--primary-magenta));
+    font-size: 2.75rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-magenta));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-gray);
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 /* Apps Grid */
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 40px;
     margin-top: 40px;
 }
 
 .app-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    border: 2px solid transparent;
+    background: var(--bg-premium);
+    border-radius: 24px;
+    padding: 40px 35px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(139, 62, 159, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--primary-magenta));
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .app-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(139, 62, 159, 0.2);
-    border: 2px solid var(--primary-purple);
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(139, 62, 159, 0.2);
+}
+
+.app-card:hover::before {
+    opacity: 1;
+}
+
+/* Status Badges */
+.status-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.status-live {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+}
+
+.status-live::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+}
+
+.status-coming-soon {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-magenta) 100%);
+    color: white;
+}
+
+.app-card:hover .status-badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
 }
 
 .app-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    border-radius: 16px;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    border-radius: 20px;
     overflow: hidden;
     background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-magenta) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.app-card:hover .app-icon {
+    transform: scale(1.05);
 }
 
 .app-icon img {
@@ -191,21 +293,25 @@ main {
 }
 
 .app-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-align: center;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
 }
 
 .app-description {
     color: var(--text-gray);
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     text-align: center;
     min-height: 60px;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 .app-links {
@@ -217,79 +323,97 @@ main {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 28px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 12px;
     text-align: center;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-magenta) 100%);
     color: white;
+    box-shadow: 0 4px 12px rgba(139, 62, 159, 0.25);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 62, 159, 0.35);
 }
 
 .btn-secondary {
-    background: white;
+    background: rgba(139, 62, 159, 0.05);
     color: var(--primary-purple);
-    border: 2px solid var(--primary-purple);
+    border: 1.5px solid rgba(139, 62, 159, 0.2);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-purple);
-    color: white;
+    background: rgba(139, 62, 159, 0.1);
+    border-color: var(--primary-purple);
+    transform: translateY(-2px);
 }
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--primary-magenta) 100%);
-    color: white;
-    padding: 30px 0;
+    background: var(--bg-premium);
+    color: var(--text-gray);
+    padding: 50px 0;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(139, 62, 159, 0.1);
+}
+
+footer p {
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 /* Legal Pages */
 .legal-page {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
+    background: var(--bg-premium);
+    border-radius: 20px;
+    padding: 50px;
     margin: 40px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(139, 62, 159, 0.08);
 }
 
 .legal-page h1 {
-    background: linear-gradient(90deg, var(--primary-purple), var(--primary-magenta));
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-magenta));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
-    font-weight: 700;
+    margin-bottom: 12px;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
 }
 
 .legal-page .last-updated {
-    color: #718096;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+    font-weight: 500;
 }
 
 .legal-page h2 {
     color: var(--primary-purple);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 1.6rem;
 }
 
 .legal-page p, .legal-page ul {
-    color: #4a5568;
-    margin-bottom: 15px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 .legal-page ul {
@@ -297,22 +421,60 @@ footer {
 }
 
 .legal-page li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.legal-page h3 {
+    color: var(--primary-blue);
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.legal-page a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.legal-page a:hover {
+    color: var(--primary-magenta);
+    border-bottom-color: var(--primary-magenta);
+}
+
+.legal-page ol {
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.legal-page ol li {
+    margin-bottom: 12px;
+}
+
+.legal-page em {
+    color: var(--primary-purple);
+    font-style: italic;
+    font-size: 1.15rem;
 }
 
 .back-link {
     display: inline-block;
-    margin-top: 30px;
-    background: linear-gradient(90deg, var(--primary-purple), var(--primary-magenta));
+    margin-top: 40px;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-magenta));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: opacity 0.3s ease;
 }
 
 .back-link:hover {
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
 /* Responsive Design */
@@ -330,35 +492,87 @@ footer {
     }
 
     .header-banner {
-        padding: 15px;
+        padding: 40px 20px 30px;
     }
 
     .header-image {
         max-height: 250px;
-        border-radius: 16px;
     }
 
     .scroll-indicator {
-        padding: 20px 10px;
+        padding: 30px 20px 40px;
     }
 
     .scroll-arrow {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .scroll-text {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding: 60px 20px 80px;
+    }
+
+    .hero {
+        margin-bottom: 50px;
     }
 
     .hero h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        letter-spacing: -0.3px;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
     }
 
     .apps-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .app-card {
+        padding: 35px 28px;
+    }
+
+    .app-card h3 {
+        font-size: 1.45rem;
+    }
+
+    .app-description {
+        font-size: 1rem;
+    }
+
+    .status-badge {
+        top: 15px;
+        right: 15px;
+        padding: 5px 12px;
+        font-size: 0.7rem;
+    }
+
+    .status-live::before {
+        width: 5px;
+        height: 5px;
+        margin-right: 5px;
     }
 
     .legal-page {
-        padding: 20px;
+        padding: 35px 25px;
+        margin: 30px 15px;
+    }
+
+    .legal-page h1 {
+        font-size: 2rem;
+    }
+
+    .legal-page h2 {
+        font-size: 1.4rem;
+        margin-top: 30px;
+    }
+
+    .legal-page p, .legal-page ul {
+        font-size: 1rem;
     }
 }
