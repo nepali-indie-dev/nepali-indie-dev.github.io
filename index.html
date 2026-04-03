@@ -1,83 +1,196 @@
-<!--
-File: index.html
-Project: chiranjeevipandey
-File Created: Saturday, 6th December 2025 4:52:48 pm
-Author: Chiranjeevi Pandey (chiran604@gmail.com)
------
-Last Modified: Saturday, 6th December 2025 4:52:51 pm
-Modified By: Chiranjeevi Pandey (chiran604@gmail.com>)
------
-Copyright 2025
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Showcase of indie apps by Nepali Indie Dev">
-    <title>Nepali Indie Dev - App Showcase</title>
+    <meta name="description" content="Nepali Indie Dev — Crafting premium, narrative-driven mobile experiences rooted in nature and built for the modern world.">
+    <title>Nepali Indie Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class="header-banner">
-            <img src="header.png" alt="Nepali Indie Dev Header" class="header-image">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-pill">
+            <a href="/" class="nav-logo" aria-label="Nepali Indie Dev Home">
+                <img src="logo_light.png" alt="Nepali Indie Dev" class="nav-logo-img logo-light">
+                <img src="logo_dark.png"  alt="Nepali Indie Dev" class="nav-logo-img logo-dark">
+            </a>
+            <div class="nav-links">
+                <a href="#apps" class="nav-link">Apps</a>
+                <a href="#philosophy" class="nav-link">Philosophy</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">&#8595;</div>
-            <p class="scroll-text">Scroll to explore our apps</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-headline">
+                <span class="headline-line headline-black">Indie Spirit.</span>
+                <span class="headline-line">
+                    <span class="accent-purple">Himalayan</span> <span class="accent-orange">Soul.</span>
+                </span>
+            </h1>
+            <p class="hero-subtitle">
+                Crafting premium, narrative-driven mobile experiences<br>
+                rooted in nature and built for the modern world.
+            </p>
+            <a href="#apps" class="cta-btn">View Projects &rarr;</a>
         </div>
-    </header>
+        <div class="scroll-indicator" aria-hidden="true">
+            <span class="scroll-label">SCROLL</span>
+            <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Our Apps</h2>
-            <p>Discover our collection of indie apps built with passion and care.</p>
-        </section>
+    <!-- Apps Section -->
+    <main id="apps">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Apps</h2>
+                <p class="section-subtitle">Discover our collection of indie apps built with passion and care.</p>
+            </div>
 
-        <section class="apps-grid">
-            <!-- ProperPDF App Card -->
-            <article class="app-card">
-                <span class="status-badge status-live">Live</span>
-                <div class="app-icon">
-                    <img src="properpdf/icon.png" alt="ProperPDF Icon" onerror="this.style.display='none'">
-                </div>
-                <h3>ProperPDF: Pro PDF Editor</h3>
-                <p class="app-description">Merge, split, sign, compress & convert PDFs. The fast, offline PDF utility
-                    tool designed for speed, simplicity, and 100% privacy.</p>
-                <div class="app-links">
-                    <a href="properpdf/" class="btn btn-primary">Learn More</a>
-                    <a href="properpdf/privacy-policy.html" class="btn btn-secondary">Privacy Policy</a>
-                    <a href="properpdf/terms-of-service.html" class="btn btn-secondary">Terms of Service</a>
-                </div>
-            </article>
+            <div class="apps-grid">
 
-            <!-- Speaker Cleaner App Card -->
-            <article class="app-card">
-                <span class="status-badge status-coming-soon">Coming Soon</span>
-                <div class="app-icon">
-                    <img src="speaker-cleaner/icon.png" alt="Speaker Cleaner Icon" onerror="this.style.display='none'">
-                </div>
-                <h3>Speaker Cleaner - Water Eject</h3>
-                <p class="app-description">Remove water and dust from your phone speakers using advanced 165Hz sound frequency technology. Includes stereo check and decibel meter.</p>
-                <div class="app-links">
-                    <a href="speaker-cleaner/" class="btn btn-primary">Learn More</a>
-                    <a href="speaker-cleaner/privacy-policy.html" class="btn btn-secondary">Privacy Policy</a>
-                    <a href="speaker-cleaner/terms-of-service.html" class="btn btn-secondary">Terms of Service</a>
-                </div>
-            </article>
+                <!-- ProperPDF App Card -->
+                <article class="app-card">
+                    <span class="status-badge status-live">
+                        <span class="live-dot" aria-hidden="true"></span>
+                        Live
+                    </span>
+                    <div class="app-icon">
+                        <img src="properpdf/icon.png" alt="ProperPDF app icon" onerror="this.style.display='none'">
+                    </div>
+                    <h3 class="app-name">ProperPDF - Offline PDF Editor everywhere</h3>
+                    <p class="app-description">Merge, split, sign, compress &amp; convert PDFs. The fast, offline PDF utility tool designed for speed, simplicity, and 100% privacy.</p>
+                    <div class="app-actions">
+                        <a href="properpdf/" class="btn btn-primary">Learn More &rarr;</a>
+                        <div class="legal-links">
+                            <a href="properpdf/privacy-policy.html" class="btn-text">Privacy Policy</a>
+                            <span class="divider" aria-hidden="true">&middot;</span>
+                            <a href="properpdf/terms-of-service.html" class="btn-text">Terms</a>
+                        </div>
+                    </div>
+                </article>
 
-            <!-- Add more app cards here -->
-        </section>
+                <!-- Speaker Cleaner App Card -->
+                <article class="app-card">
+                    <span class="status-badge status-coming-soon">Coming Soon</span>
+                    <div class="app-icon">
+                        <img src="speaker-cleaner/icon.png" alt="Speaker Cleaner app icon" onerror="this.style.display='none'">
+                    </div>
+                    <h3 class="app-name">Speaker Cleaner — Water Eject</h3>
+                    <p class="app-description">Remove water and dust from your phone speakers using advanced 165Hz sound frequency technology. Includes stereo check and decibel meter.</p>
+                    <div class="app-actions">
+                        <a href="speaker-cleaner/" class="btn btn-primary">Learn More &rarr;</a>
+                        <div class="legal-links">
+                            <a href="speaker-cleaner/privacy-policy.html" class="btn-text">Privacy Policy</a>
+                            <span class="divider" aria-hidden="true">&middot;</span>
+                            <a href="speaker-cleaner/terms-of-service.html" class="btn-text">Terms</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
     </main>
 
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom:48px;">
+                <h2 class="section-title" style="color:#F0EBE3;">Our Philosophy</h2>
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.55);">How we think. How we build. Why it matters.</p>
+            </div>
+
+            <p class="philosophy-manifesto">
+                We believe great software is like a mountain — it endures not by being loud,
+                but by being solid. Every app we release is a commitment, not a product launch.
+            </p>
+
+            <div class="pillars-grid">
+                <div class="pillar-card pillar-card--dark">
+                    <div class="pillar-accent"></div>
+                    <h3 class="pillar-title">The Indie Way</h3>
+                    <p class="pillar-body">
+                        We're bootstrapped and independent. Every decision is guided by what's
+                        best for the user — not a growth metric or an investor deck. We ship
+                        when it's ready. We charge fairly. We don't do dark patterns, fake urgency,
+                        or manipulative subscriptions.
+                    </p>
+                </div>
+                <div class="pillar-card pillar-card--dark">
+                    <div class="pillar-accent"></div>
+                    <h3 class="pillar-title">Privacy by Default</h3>
+                    <p class="pillar-body">
+                        Inspired by Nepal's vast, untouched landscapes — we build apps that
+                        respect your space. Offline-first where it makes sense. No unnecessary
+                        data collection. Your device, your data, your control.
+                    </p>
+                </div>
+                <div class="pillar-card pillar-card--dark">
+                    <div class="pillar-accent"></div>
+                    <h3 class="pillar-title">Craft Over Commerce</h3>
+                    <p class="pillar-body">
+                        We don't chase trends or ship half-baked ideas. One well-crafted app
+                        beats ten mediocre ones every time. We obsess over details — the feel
+                        of an animation, the clarity of a label, the speed of an operation.
+                    </p>
+                </div>
+            </div>
+
+            <p class="philosophy-quote">
+                &ldquo;We build apps the way Himalayan craftsmen build &mdash; with care, with purpose, and with the mountains in our soul.&rdquo;
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom:48px;">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Questions, feedback, or just want to say hello — we read every message.</p>
+            </div>
+            <div class="contact-card">
+                <p class="contact-intro">
+                    We're a small indie studio from Nepal. Whether you have a question about
+                    one of our apps, found a bug, or just want to share some feedback —
+                    drop us a line. We typically respond within 48 hours.
+                </p>
+                <a href="mailto:nepali.indie.dev@gmail.com" class="contact-email-link">
+                    nepali.indie.dev@gmail.com
+                </a>
+                <div class="contact-divider"></div>
+                <p class="contact-note">
+                    For app support, include the app name and your device model in the subject line
+                    so we can help you faster.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Nepali Indie Dev. All rights reserved.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Nepali Indie Dev. All rights reserved.</p>
         </div>
     </footer>
-</body>
 
+</body>
 </html>
