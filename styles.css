@@ -97,8 +97,18 @@ body {
     background-color: var(--bg-page);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
     transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1, h2, h3, .hero-headline, .section-title, .app-name, .pillar-title, .inner-hero-title {
+    text-wrap: balance;
+}
+
+p, .hero-subtitle, .section-subtitle, .app-description, .pillar-body {
+    text-wrap: pretty;
 }
 
 .container {
@@ -112,13 +122,15 @@ body {
    ============================================================ */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: max(20px, env(safe-area-inset-top));
     left: 0;
     right: 0;
     z-index: var(--z-nav);
     display: flex;
     justify-content: center;
     padding: 0 24px;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
     pointer-events: none;
 }
 
@@ -303,6 +315,11 @@ body {
     background: #e85d28;
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(255, 107, 53, 0.45);
+}
+
+.cta-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 12px rgba(255, 107, 53, 0.35);
 }
 
 /* Scroll indicator */
@@ -539,6 +556,16 @@ main#apps {
     opacity: 0.85;
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+
+.app-card:active {
+    transform: scale(0.995);
 }
 
 .legal-links {
@@ -964,14 +991,17 @@ footer p {
    Responsive
    ============================================================ */
 @media (max-width: 768px) {
+    .br-desktop { display: none; }
+
     .navbar {
-        top: 12px;
-        padding: 0 14px;
+        top: max(12px, env(safe-area-inset-top));
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
     }
 
     .nav-pill {
-        padding: 8px 12px 8px 16px;
-        gap: 8px;
+        padding: 8px 10px 8px 14px;
+        gap: 6px;
     }
 
     .nav-logo-img {
@@ -979,55 +1009,125 @@ footer p {
     }
 
     .nav-link {
-        padding: 5px 8px;
+        padding: 8px 10px;
         font-size: 0.82rem;
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
     }
 
     .hero {
-        padding: 100px 20px 80px;
+        padding: 96px 20px 88px;
     }
 
     .hero-headline {
         font-size: clamp(2.6rem, 12vw, 3.8rem);
+        letter-spacing: -0.035em;
     }
 
     .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.98rem;
+        line-height: 1.65;
+        padding: 0 6px;
     }
 
     .cta-btn {
         font-size: 0.95rem;
         padding: 14px 28px;
+        min-height: 48px;
+    }
+
+    .scroll-indicator {
+        bottom: max(24px, env(safe-area-inset-bottom));
     }
 
     main#apps {
-        padding: 72px 0 88px;
+        padding: 64px 0 80px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
     }
 
     .section-title {
         font-size: 2rem;
     }
 
+    .section-subtitle {
+        font-size: 0.98rem;
+    }
+
     .apps-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .app-card {
-        padding: 36px 28px 28px;
+        padding: 32px 24px 24px;
+        border-radius: var(--radius-md);
+    }
+
+    .app-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+    }
+
+    .status-badge {
+        top: 14px;
+        right: 14px;
+        font-size: 0.65rem;
+        padding: 4px 10px;
     }
 
     .app-name {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+
+    .app-description {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
+    }
+
+    .btn-primary {
+        padding: 14px 20px;
+        min-height: 48px;
     }
 
     .philosophy-section {
-        padding: 80px 24px;
+        padding: 72px 20px 64px;
+    }
+
+    .philosophy-manifesto {
+        font-size: 1.05rem;
+        margin-bottom: 36px;
+    }
+
+    .philosophy-quote {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        padding: 0 4px;
     }
 
     .pillars-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
+        margin-bottom: 48px;
+    }
+
+    .pillar-card {
+        padding: 28px 22px;
+        border-radius: var(--radius-md);
+    }
+
+    .pillar-accent {
+        margin-bottom: 18px;
     }
 
     .philosophy-page-content,
@@ -1037,33 +1137,109 @@ footer p {
 
     .philosophy-closing,
     .contact-card {
-        padding: 32px 24px;
-    }
-
-    .inner-hero {
-        padding: 100px 20px 56px;
-    }
-
-    .inner-hero-title {
-        font-size: clamp(1.7rem, 7vw, 2.2rem);
-    }
-
-    .legal-page {
         padding: 32px 22px;
-        margin: 24px 16px;
         border-radius: var(--radius-md);
     }
 
+    .contact-section {
+        padding: 72px 0 80px;
+    }
+
+    .contact-intro {
+        font-size: 0.98rem;
+        margin-bottom: 28px;
+    }
+
+    .contact-email-link {
+        font-size: 1.05rem;
+        margin-bottom: 28px;
+        word-break: break-all;
+    }
+
+    .contact-divider {
+        margin: 28px auto;
+    }
+
+    footer {
+        padding: 32px 0 max(32px, env(safe-area-inset-bottom));
+    }
+
+    .inner-hero {
+        padding: 96px 20px 48px;
+    }
+
+    .inner-hero-eyebrow {
+        font-size: 0.68rem;
+        margin-bottom: 10px;
+    }
+
+    .inner-hero-title {
+        font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+        margin-bottom: 12px;
+    }
+
+    .inner-hero-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .inner-content {
+        padding: 0 0 64px;
+    }
+
+    .legal-page {
+        padding: 28px 20px 20px;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .legal-page::before {
+        display: none;
+    }
+
     .legal-page h1 {
-        font-size: 1.9rem;
+        font-size: 1.65rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
     }
 
     .legal-page h2 {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
+        margin-top: 28px;
+        margin-bottom: 12px;
+    }
+
+    .legal-page h3 {
+        font-size: 1.05rem;
+        margin-top: 22px;
+        margin-bottom: 8px;
     }
 
     .legal-page p, .legal-page ul {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 12px;
+    }
+
+    .legal-page ul,
+    .legal-page ol {
+        padding-left: 22px;
+    }
+
+    .legal-page li {
+        margin-bottom: 6px;
+    }
+
+    .legal-page em {
+        font-size: 1rem;
+    }
+
+    .legal-page .last-updated {
+        font-size: 0.88rem;
+        margin-bottom: 24px;
     }
 }
 
@@ -1080,5 +1256,18 @@ footer p {
     .theme-toggle {
         width: 30px;
         height: 30px;
+    }
+
+    .legal-page {
+        padding: 24px 18px 16px;
+    }
+
+    .legal-page h1 {
+        font-size: 1.45rem;
+    }
+
+    .legal-page h2 {
+        font-size: 1.1rem;
+        margin-top: 24px;
     }
 }
