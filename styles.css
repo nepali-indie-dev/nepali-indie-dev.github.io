@@ -1505,6 +1505,20 @@ footer p {
     opacity: 1;
 }
 
+.feature-pro-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta));
+    padding: 3px 9px;
+    border-radius: 999px;
+}
+
 .feature-icon {
     width: 42px;
     height: 42px;
