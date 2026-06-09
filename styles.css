@@ -415,23 +415,9 @@ main#apps {
     overflow: hidden;
 }
 
-.app-card::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--brand-purple), var(--brand-orange));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
 .app-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-}
-
-.app-card:hover::before {
-    opacity: 1;
 }
 
 /* Status Badges */
@@ -699,17 +685,6 @@ footer p {
     position: relative;
     overflow: hidden;
     transition: background-color 0.25s ease, border-color 0.25s ease;
-}
-
-/* Gradient top accent bar */
-.legal-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta), var(--brand-orange));
 }
 
 .legal-page h1 {
@@ -1196,10 +1171,6 @@ footer p {
         background: transparent;
     }
 
-    .legal-page::before {
-        display: none;
-    }
-
     .legal-page h1 {
         font-size: 1.65rem;
         line-height: 1.2;
@@ -1487,22 +1458,6 @@ footer p {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: var(--border-med);
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.feature-card:hover::before {
-    opacity: 1;
 }
 
 .feature-pro-tag {
