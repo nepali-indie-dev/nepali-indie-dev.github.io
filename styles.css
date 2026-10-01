@@ -768,6 +768,33 @@ footer p {
     font-size: 1.15rem;
 }
 
+.legal-table-scroll {
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.legal-page table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.legal-page th,
+.legal-page td {
+    padding: 14px;
+    border: 1px solid var(--border-subtle);
+    text-align: left;
+    vertical-align: top;
+}
+
+.legal-page th {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
 .back-link {
     display: inline-block;
     margin-top: 40px;
