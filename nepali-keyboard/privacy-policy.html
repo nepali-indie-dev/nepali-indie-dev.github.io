@@ -8,7 +8,7 @@
     <title>Privacy Policy — Nepali Unicode Keyboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <script src="../theme.js"></script>
 </head>
@@ -23,7 +23,7 @@
             </a>
             <div class="nav-links">
                 <a href="../#apps" class="nav-link">Apps</a>
-                <a href="../#philosophy" class="nav-link">How we work</a>
+                <a href="../#philosophy" class="nav-link">Philosophy</a>
                 <a href="../#contact" class="nav-link">Contact</a>
             </div>
             <button class="theme-toggle" id="theme-toggle">
@@ -45,9 +45,9 @@
             <div class="legal-page">
 
 <h1>Privacy Policy</h1>
-<p class="last-updated">Effective: October 20, 2026 &middot; Last updated: October 20, 2026</p>
+<p class="last-updated">Effective: October 20, 2026 &middot; Last updated: October 27, 2026</p>
 <p>Chiranjeevi Pandey ("we," "our," or "us") built Nepali Unicode Keyboard for Android. This Privacy Policy explains what Nepali Unicode Keyboard does with the text you type and the other information it handles.</p>
-<p><strong>The short version: Nepali Unicode Keyboard does not have Android's internet permission, so it cannot send what you type anywhere. It does not save your typing, has no account, no ads and no analytics, and we never receive any of your data. The only time anything leaves your phone is when you tap the microphone: your voice then goes to your phone's speech recognition service (usually Google's) to be turned into text.</strong></p>
+<p><strong>The short version: Nepali Unicode Keyboard never sends what you type anywhere. It does not save your typing, has no account and no ads, and we never receive any of your data. Something leaves your phone in only two cases, both your choice: when you tap the microphone, your voice goes to your phone's speech recognition service (usually Google's); and if you turn on handwriting, the app downloads Google's handwriting model and Google's ML Kit sends Google usage diagnostics (not what you write). Without handwriting turned on, the app makes no internet connections.</strong></p>
 <p>By using Nepali Unicode Keyboard, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the app.</p>
 
 <h2>1. About Android's Keyboard Warning</h2>
@@ -61,7 +61,8 @@
     <li>Keys you press are turned into text and passed straight to the app you are typing in. Nepali Unicode Keyboard does <strong>not</strong> store, log or upload what you type.</li>
     <li>In Romanized mode, the letters of the word you are typing are kept in memory only until you finish the word, so the keyboard can suggest the Nepali spelling. Suggestions come from a word list built into the app; nothing is looked up online.</li>
     <li>Nepali Unicode Keyboard does not learn or remember the words you type.</li>
-    <li>The app has no internet permission. You can confirm this on its Google Play page under "App permissions," or in your phone's app info.</li>
+    <li>The app has Android's internet permission only for handwriting (see below). Typing, suggestions, the clipboard and emoji never use it.</li>
+    <li>Smart suggestions (Nepali dates, amounts in words, land and gold units) are worked out on your device from the text just before the cursor and are not stored.</li>
 </ul>
 
 <h3>Password and Private Fields</h3>
@@ -75,38 +76,50 @@
     <li>You can avoid voice typing altogether by not tapping the microphone, or deny the microphone permission in Android Settings.</li>
 </ul>
 
-<h3>Settings and Recently Used Emoji</h3>
+<h3>Handwriting (Optional, Off by Default)</h3>
 <ul>
-    <li>Nepali Unicode Keyboard stores your settings (typing style, key height, vibration, sound, app language) and a short list of emoji you used recently, <strong>only on your device</strong>.</li>
+    <li>Handwriting is off until you turn it on. Before anything is downloaded, the keyboard shows what turning it on means and asks you.</li>
+    <li>Turning it on downloads Google's Nepali handwriting model (about 15 MB) from Google's servers, once. Your handwriting is then recognised <strong>on your device</strong>; the strokes you write are not sent anywhere.</li>
+    <li>The handwriting feature uses Google ML Kit, which sends Google usage diagnostics: device information (such as manufacturer, model and Android version), the app's package name and version, a per-installation identifier, performance metrics, the configured language, event types and error codes. Google uses them for diagnostics and usage analytics and does not share them with third parties; they are encrypted in transit. We do not receive them. See <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">Google's ML Kit data disclosure</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+    <li>ML Kit does not start, and nothing is sent, until you turn handwriting on. Turning it off in the app's Settings deletes the downloaded model and stops these diagnostics.</li>
+</ul>
+
+<h3>Settings, Recently Used Emoji and Clipboard History</h3>
+<ul>
+    <li>Nepali Unicode Keyboard stores your settings (typing style, key height, vibration, sound, app language, smart suggestions, handwriting) and a short list of emoji you used recently, <strong>only on your device</strong>.</li>
+    <li>Clipboard history keeps text you copied or pasted (up to 50 recent and 50 pinned items) <strong>only on your device</strong>. It never saves text copied from password fields, while an incognito field is open, or that the copying app marks as sensitive. You can turn it off or clear it in Settings; turning it off deletes the saved items.</li>
 </ul>
 
 <h3>Device Backup</h3>
-<p>If Android backup is turned on for your device, Android may include Nepali Unicode Keyboard's settings and recently used emoji in your Google account backup, so they can be restored on a new device. This backup is run by Google under your Google account settings, not by us, and we cannot access it. You can turn it off in your device's backup settings.</p>
+<p>If Android backup is turned on for your device, Android may include Nepali Unicode Keyboard's settings and recently used emoji (but not the clipboard history) in your Google account backup, so they can be restored on a new device. This backup is run by Google under your Google account settings, not by us, and we cannot access it. You can turn it off in your device's backup settings.</p>
 
 <h3>Support Requests</h3>
 <p>If you email us for support (for example with "Send feedback" in the app's Settings), we receive your email address, the content of your message, and the app version, Android version and device model that the app pre-fills in the email. We use this only to respond to you.</p>
 
 <h2>3. How We Use Information</h2>
-<p>We do not receive any information from the app itself. The information described above is used only on your device to type, show suggestions and remember your settings, and by your phone's speech service when you use voice typing. Support emails are used only to answer you.</p>
+<p>We do not receive any information from the app itself. The information described above is used only on your device to type, show suggestions and remember your settings, by your phone's speech service when you use voice typing, and by Google ML Kit when you turn on handwriting. Support emails are used only to answer you.</p>
 <p>We do <strong>not</strong> sell your data, share it with data brokers, show ads, or use it for advertising or tracking.</p>
 
 <h2>4. Third-Party Services</h2>
 <ul>
     <li><strong>Your phone's speech recognition service</strong> (usually Google) — only when you tap the microphone. See above. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+    <li><strong>Google ML Kit</strong> (digital ink recognition) — only if you turn on handwriting: model download and usage diagnostics, as described above. <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">Google's ML Kit data disclosure</a></li>
     <li><strong>Google Play</strong> — app download and updates. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></li>
 </ul>
-<p>Nepali Unicode Keyboard contains no advertising, analytics or crash-reporting SDKs.</p>
+<p>Nepali Unicode Keyboard contains no advertising SDKs, and we don't add analytics or crash reporting of our own. Google ML Kit's diagnostics, sent only while handwriting is on, go to Google, not to us.</p>
 
 <h2>5. Data Retention</h2>
-<p>We do not hold any data about you. Your settings and recently used emoji stay on your device until you clear the app's data or uninstall it. Support emails are kept only as long as needed to resolve your request.</p>
+<p>We do not hold any data about you. Your settings, recently used emoji and clipboard history stay on your device until you clear them, clear the app's data or uninstall the app. ML Kit diagnostics are kept by Google under its own retention rules. Support emails are kept only as long as needed to resolve your request.</p>
 
 <h2>6. Data Security</h2>
-<p>Without internet access the app cannot transmit data. On-device settings are protected by Android's app sandbox, so other apps cannot read them.</p>
+<p>The app connects to the internet only for handwriting, and only after you turn it on; that traffic (the model download and ML Kit's diagnostics) is encrypted. On-device settings and clipboard history are protected by Android's app sandbox, so other apps cannot read them.</p>
 
 <h2>7. Your Choices and Rights</h2>
 <ul>
     <li><strong>Turn the keyboard off:</strong> in Android Settings &rarr; System &rarr; Keyboard (the exact path depends on your phone), or uninstall the app.</li>
     <li><strong>Microphone:</strong> revoke the permission at any time in Android Settings.</li>
+    <li><strong>Handwriting:</strong> leave it off, or turn it off in the app's Settings, which deletes the model and stops ML Kit's diagnostics.</li>
+    <li><strong>Clipboard history:</strong> turn it off or clear it in the app's Settings.</li>
     <li><strong>Your settings and emoji history:</strong> clear the app's data in Android Settings.</li>
     <li><strong>Requests:</strong> contact us at sublimecoder247@gmail.com or nepali.indie.dev@gmail.com with any privacy question or request. We will respond within 30 days.</li>
 </ul>
@@ -123,7 +136,7 @@
 <p>Nepali Unicode Keyboard is not directed at children under 13 and does not collect personal information from anyone, including children. If you believe a child has sent us personal information by email, contact us and we will delete it.</p>
 
 <h2>9. Changes to This Privacy Policy</h2>
-<p>We may update this Privacy Policy when the app changes. If a future version ever needs internet access, we will say so here before that version is released. We will update the "Last updated" date above and post the revised policy at <a href="https://nepali-indie-dev.github.io/nepali-keyboard/privacy-policy.html">https://nepali-indie-dev.github.io/nepali-keyboard/privacy-policy.html</a>.</p>
+<p>We may update this Privacy Policy when the app changes. If a future version sends any new kind of data, we will say so here before that version is released. We will update the "Last updated" date above and post the revised policy at <a href="https://nepali-indie-dev.github.io/nepali-keyboard/privacy-policy.html">https://nepali-indie-dev.github.io/nepali-keyboard/privacy-policy.html</a>.</p>
 
 <h2>10. Contact Us</h2>
 <ul>
