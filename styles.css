@@ -516,42 +516,79 @@ main#apps {
 
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(310px, 100%), 1fr));
     gap: 20px;
 }
 
-/* App Card — set --c on each card to tint its glow */
+/* App Card — "poster": the whole card is in the app's colours (see Per-app themes) */
 .app-card {
-    --c: var(--brand-violet);
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 28px;
-    background: var(--surface-card);
-    border: 1px solid var(--border-subtle);
+    align-items: center;
+    overflow: hidden;
+    padding: 34px 26px 22px;
+    text-align: center;
+    color: #FFFFFF;
+    background:
+        radial-gradient(120% 60% at 50% 115%, color-mix(in srgb, var(--app-2, #fff) 50%, transparent), transparent 62%),
+        var(--app-cover, var(--brand-wash));
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.5s ease, background-color 0.3s ease;
-}
-
-.app-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(380px 150px at 15% 0%, color-mix(in srgb, var(--c) var(--card-glow), transparent), transparent 70%);
-    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
 }
 
 .app-card:hover {
     transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--c) 45%, transparent);
+    box-shadow: 0 24px 48px -22px color-mix(in srgb, var(--app, #000) 70%, transparent);
 }
 
-.app-card-top {
+.app-cover {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-cover .app-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.app-title {
+    margin-top: 18px;
+}
+
+.app-card .app-name {
+    color: #FFFFFF;
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    line-height: 1.25;
+}
+
+.app-platform {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    margin-top: 14px;
+}
+
+.app-card .app-description {
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 34ch;
 }
 
 .app-icon {
@@ -559,7 +596,6 @@ main#apps {
     height: 60px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 0 1px var(--border-subtle);
     flex-shrink: 0;
 }
 
@@ -599,7 +635,12 @@ main#apps {
     color: var(--text-heading);
     letter-spacing: -0.01em;
     line-height: 1.3;
-    margin: 22px 0 8px;
+    margin: 0 0 8px;
+}
+
+.app-name a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .app-description {
@@ -609,19 +650,66 @@ main#apps {
     flex: 1;
 }
 
+.card-stores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.card-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-store:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.card-store svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.card-soon {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88rem;
+}
+
 .app-card-foot {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    margin-top: 24px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+    margin-top: auto;
+    padding-top: 22px;
 }
 
-.app-more {
-    color: var(--text-heading);
+.app-card-foot-spacer {
+    display: none;
+}
+
+.app-card .app-more {
+    color: #FFFFFF;
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
@@ -648,6 +736,15 @@ main#apps {
 
 .btn-text:hover {
     color: var(--text-muted);
+}
+
+.app-card .btn-text,
+.app-card .divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.app-card .btn-text:hover {
+    color: #FFFFFF;
 }
 
 .divider {
@@ -1040,8 +1137,11 @@ footer p {
     }
 
     .app-card {
-        padding: 24px;
         border-radius: 24px;
+    }
+
+    .app-card {
+        padding: 28px 22px 20px;
     }
 
     .pillars-grid {
@@ -1602,6 +1702,145 @@ footer p {
         font-size: 0.98rem;
         margin-bottom: 28px;
     }
+}
+
+/* ============================================================
+   Per-app themes — colours sampled from each app's icon.
+   Put data-app="…" on <body> of an app's pages, and on its
+   home-page card. Everything below reads these variables.
+   ============================================================ */
+[data-app="properpdf"]       { --app: #1F6D9C; --app-2: #2096CC; }
+[data-app="properimage"]     { --app: #F2561C; --app-2: #FF9A5C; }
+[data-app="kml-kmz-viewer"]  { --app: #00807C; --app-2: #FFB143; }
+[data-app="nepali-keyboard"] { --app: #B3122E; --app-2: #E8465F; }
+[data-app="gps-simulator"]   { --app: #123A5E; --app-2: #FB6738; }
+[data-app="mero-contacts"]   { --app: #1F6F43; --app-2: #F2B33D; }
+
+[data-app] {
+    --app-deep:  color-mix(in srgb, var(--app) 62%, #000);
+    --app-ink:   color-mix(in srgb, var(--app) 76%, #000);
+    --app-soft:  color-mix(in srgb, var(--app) 10%, transparent);
+    --app-cover: linear-gradient(150deg, var(--app) 0%, var(--app-deep) 100%);
+}
+
+[data-theme="dark"] [data-app] {
+    --app-deep:  color-mix(in srgb, var(--app) 40%, #000);
+    --app-ink:   color-mix(in srgb, var(--app) 50%, #fff);
+    --app-soft:  color-mix(in srgb, var(--app) 22%, transparent);
+    --app-cover: linear-gradient(150deg, color-mix(in srgb, var(--app) 82%, #000) 0%, var(--app-deep) 100%);
+}
+
+/* Navy reads too dark as text on the dusk theme: use its orange accent */
+[data-theme="dark"] [data-app="gps-simulator"] {
+    --app-ink: color-mix(in srgb, var(--app-2) 70%, #fff);
+}
+
+/* App page hero: the app's colour instead of the brand sky */
+[data-app] .inner-hero {
+    background:
+        radial-gradient(900px 340px at 50% 115%, color-mix(in srgb, var(--app-2) 34%, transparent), transparent 70%),
+        var(--app-cover);
+    --hero-text:  #FFFFFF;
+    --hero-muted: rgba(255, 255, 255, 0.88);
+    --hero-faint: rgba(255, 255, 255, 0.74);
+    --ghost-line: rgba(255, 255, 255, 0.55);
+    --ghost-bg:   rgba(255, 255, 255, 0.08);
+}
+
+[data-app] .inner-hero::before {
+    display: none;
+}
+
+[data-app] .product-hero-icon {
+    box-shadow: 0 18px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+[data-app] .inner-hero .store-btn--primary {
+    background: #FFFFFF;
+    color: var(--app-deep);
+}
+
+[data-app] .inner-hero .store-btn--primary svg[fill="currentColor"] {
+    color: #000;
+}
+
+/* App page body */
+[data-app] .features-eyebrow,
+[data-app] .eyebrow {
+    color: var(--app-ink);
+}
+
+[data-app] .value-prop-icon {
+    background: var(--app);
+}
+
+[data-theme="dark"] [data-app] .value-prop-icon {
+    background: color-mix(in srgb, var(--app) 80%, #fff);
+}
+
+[data-app] .feature-icon,
+[data-theme="dark"] [data-app] .feature-icon {
+    background: var(--app-soft);
+    color: var(--app-ink);
+}
+
+[data-app] .feature-pro-tag {
+    background: var(--app-soft);
+    color: var(--app-ink);
+}
+
+[data-app] .value-prop:hover,
+[data-app] .feature-card:hover,
+[data-app] .audience-card:hover {
+    border-color: color-mix(in srgb, var(--app) 40%, transparent);
+}
+
+[data-app] .audience-section {
+    background: linear-gradient(180deg, var(--bg-page) 0%, color-mix(in srgb, var(--app) 5%, var(--bg-page)) 50%, var(--bg-page) 100%);
+}
+
+[data-app] .final-cta .container {
+    background: color-mix(in srgb, var(--app) 8%, var(--bg-page));
+}
+
+[data-theme="dark"] [data-app] .final-cta .container {
+    background: color-mix(in srgb, var(--app) 20%, var(--bg-page));
+}
+
+[data-app] .final-cta .store-btn--primary {
+    background: var(--app);
+    color: #FFFFFF;
+}
+
+[data-theme="dark"] [data-app] .final-cta .store-btn--primary {
+    background: #FFFFFF;
+    color: var(--app-deep);
+}
+
+[data-app] .app-accent {
+    color: var(--app-ink);
+}
+
+[data-app] footer::before {
+    background: linear-gradient(90deg, var(--app), var(--app-2));
+}
+
+/* Legal pages */
+[data-app] .legal-page h1 {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--app-ink);
+}
+
+[data-app] .legal-page h3,
+[data-app] .legal-page em,
+[data-app] .legal-page a {
+    color: var(--app-ink);
+}
+
+[data-app] .legal-page a:hover {
+    color: var(--text-heading);
+    border-bottom-color: var(--app-ink);
 }
 
 /* ============================================================
