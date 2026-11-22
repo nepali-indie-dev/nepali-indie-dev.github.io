@@ -13,7 +13,7 @@
     <script src="../theme.js"></script>
 </head>
 
-<body data-app="gps-simulator">
+<body>
 
     <nav class="navbar">
         <div class="nav-pill">
@@ -45,9 +45,9 @@
             <div class="legal-page">
 
 <h1>Privacy Policy</h1>
-<p class="last-updated">Effective: October 16, 2026 &middot; Last updated: November 16, 2026</p>
+<p class="last-updated">Effective: October 16, 2026 &middot; Last updated: November 22, 2026</p>
 <p>Chiranjeevi Pandey ("we," "our," or "us") built GPS Simulator for Android. This Privacy Policy explains what information GPS Simulator handles and why.</p>
-<p><strong>The short version: your routes, favourites and locations stay on your device. GPS Simulator has no account and no ads, and no analytics or crash-reporting SDKs. The only usage data we keep is anonymous setup progress, described below. It talks to three services only: Google Maps (to draw the map), your device's place search (when you search for a place), and RevenueCat with Google Play (to handle the one-time purchase). We never sell your data or use it to track you.</strong></p>
+<p><strong>The short version: your routes, favourites and locations stay on your device. GPS Simulator has no account, no ads and no analytics. The only usage data we keep is anonymous setup progress and, unless you turn it off, crash reports, both described below. It talks to four services only: Google Maps (to draw the map), your device's place search (when you search for a place), RevenueCat with Google Play (to handle the one-time purchase), and Firebase Crashlytics (to report crashes). We never sell your data or use it to track you.</strong></p>
 <p>By using GPS Simulator, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the app.</p>
 
 <h2>1. Information the App Handles</h2>
@@ -78,6 +78,13 @@
     <li>This is stored with RevenueCat under the same anonymous identifier used for purchases. It contains no location, routes, name or contact details, and it is recorded only for installs of version 1.1.2 or later.</li>
 </ul>
 
+<h3>Crash Reports</h3>
+<ul>
+    <li>If GPS Simulator crashes, it sends a crash report to Firebase Crashlytics (Google) so we can find and fix the bug. A report contains the error and the app code it happened in, the app version, your phone's model, Android version and free memory and storage, the time of the crash, and a random identifier for this installation.</li>
+    <li>Crash reports contain no location, routes, favourites, name or contact details.</li>
+    <li>Crash reporting is on by default. You can turn it off at any time in Settings → Privacy → Send crash reports.</li>
+</ul>
+
 <h3>Device Backup</h3>
 <p>If Android backup is turned on for your device, Android may include GPS Simulator's on-device data (routes, favourites, settings, and the trial start time) in your Google account backup, so it can be restored on a new device. This backup is run by Google under your Google account settings, not by us, and we cannot access it. You can turn it off in your device's backup settings.</p>
 
@@ -94,6 +101,7 @@
     <li>Save your routes, favourites and settings on your device;</li>
     <li>Run the free trial, validate and restore your purchase;</li>
     <li>See which setup steps people get stuck on, so we can make setup easier;</li>
+    <li>Find and fix crashes;</li>
     <li>Answer your support emails.</li>
 </ul>
 <p>We do <strong>not</strong> sell your data, share it with data brokers, show ads, or use it for advertising or cross-app tracking.</p>
@@ -105,13 +113,14 @@
     <li><strong>Android place search (Geocoder)</strong> — when you search for a place by name, the text you type is sent to your device's location search provider (usually Google) to find coordinates. Searches by typed coordinates stay on the device. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></li>
     <li><strong>Google Play</strong> — app download and payment processing for the lifetime unlock. We never see your payment details. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></li>
     <li><strong>RevenueCat</strong> — validates and restores your purchase, and stores the anonymous setup progress described above. It receives an anonymous app-generated identifier, purchase tokens and basic device information (such as app version and country of your Play account). It does not receive your name, email, location or routes. <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">RevenueCat Privacy</a></li>
+    <li><strong>Firebase Crashlytics</strong> (Google) — receives the crash reports described above, unless you turn them off in Settings. Google processes them on our behalf. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a></li>
 </ul>
 
 <h2>4. Data Retention</h2>
-<p>We do not hold any data that identifies you. Your routes, favourites and settings stay on your device until you delete them or uninstall the app. RevenueCat and Google keep purchase records under their own retention policies (linked above). Support emails are kept only as long as needed to resolve your request.</p>
+<p>We do not hold any data that identifies you. Your routes, favourites and settings stay on your device until you delete them or uninstall the app. RevenueCat and Google keep purchase records under their own retention policies (linked above). Crashlytics keeps crash reports for 90 days. Support emails are kept only as long as needed to resolve your request.</p>
 
 <h2>5. Data Security</h2>
-<p>Network requests to Google and RevenueCat use encrypted connections (HTTPS). On-device data is protected by Android's app sandbox, so other apps cannot read it.</p>
+<p>Network requests to Google, Firebase and RevenueCat use encrypted connections (HTTPS). On-device data is protected by Android's app sandbox, so other apps cannot read it.</p>
 
 <h2>6. Your Choices and Rights</h2>
 <ul>
